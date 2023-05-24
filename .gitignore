@@ -1,1 +1,7 @@
 chromedriver
+logs/
+rep/
+practice/
+gcp_function/
+.vscode/
+.DS_Store
