@@ -37,7 +37,7 @@ def reserve_train(srt, config):
             except Exception as e:
                 pass
         
-        time.sleep(0.1)
+        time.sleep(0.6)
         trials += 1
         logging.info(f"trial {trials}: Trains full, retrying...")
         if trials % 10 == 0:    
