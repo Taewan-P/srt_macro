@@ -1,7 +1,11 @@
-chromedriver
 logs/
 rep/
 practice/
 gcp_function/
 .vscode/
+
+# Mac OS
 .DS_Store
+
+# Venv
+/venv
