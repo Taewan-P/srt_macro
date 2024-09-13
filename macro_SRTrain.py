@@ -32,6 +32,7 @@ def reserve_train(srt, config):
                                         available_only=False)
     logging.info(f"예매를 시도합니다: {trains}")
     trials = 0
+    error_state = 0
     while True:
         for train in trains:
             try:
@@ -41,7 +42,9 @@ def reserve_train(srt, config):
             except SRTResponseError as e:
                 if e.msg != "잔여석없음":
                     logging.info("Error. Re logging in...")
-                    srt = SRT(config['login']['username'], config['login']['password'])
+                    error_state += 1
+                    if error_state % 1000 == 0:
+                        srt = SRT(config['login']['username'], config['login']['password'])
             except json.decoder.JSONDecodeError as e:
                 pass
             except Exception as e:
